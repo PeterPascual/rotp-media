@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rise of the Pirates screenshots</title>
+<meta name="description" content="Screenshots from the Unity rebuild of Rise of the Pirates.">
+<meta property="og:title" content="Rise of the Pirates">
+<meta property="og:description" content="Screenshots from the Unity rebuild.">
+<!-- For image previews when this link is shared on Discord, add a cover image and uncomment:
+<meta property="og:image" content="https://YOURNAME.github.io/rotp-media/screenshots/cover.png">
+-->
+<meta name="theme-color" content="#0f2a36">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f2a36'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23c99a3c' stroke-width='2'/%3E%3Cpath d='M16 3v26M3 16h26' stroke='%23c99a3c' stroke-width='1.5'/%3E%3Cpath d='M16 8l3 8-3 8-3-8z' fill='%23ece4cf'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;700&family=IM+Fell+English&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sea: #0f2a36;
+    --sea-deep: #0b2029;
+    --swell: #17394a;
+    --sail: #ece4cf;
+    --sail-dim: #b9b3a0;
+    --brass: #c99a3c;
+    --signal-red: #c8372d;
+    --signal-yellow: #f2c230;
+    --signal-blue: #1f4e9c;
+    --signal-white: #f7f5ee;
+    --rule: rgba(201, 154, 60, 0.28);
+    --display: "IM Fell English", "Iowan Old Style", Georgia, serif;
+    --text: "Alegreya Sans", "Gill Sans", "Trebuchet MS", sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    background: var(--sea);
+    color-scheme: dark;
+  }
+
+  html:has(dialog[open]) { overflow: hidden; }
+
+  body {
+    margin: 0;
+    font-family: var(--text);
+    font-size: 1.125rem;
+    line-height: 1.55;
+    color: var(--sail);
+    background: var(--sea);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { display: block; max-width: 100%; }
+
+  :focus-visible {
+    outline: 2px solid var(--signal-yellow);
+    outline-offset: 3px;
+  }
+
+  .wrap {
+    width: min(1180px, calc(100% - 2.5rem));
+    margin-inline: auto;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  /* Hero */
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: calc(4.5rem + env(safe-area-inset-top, 0px)) 0 4.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .rhumb {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(to right, transparent 8%, #000 62%);
+    mask-image: linear-gradient(to right, transparent 8%, #000 62%);
+  }
+
+  .rhumb line {
+    stroke: var(--brass);
+    stroke-opacity: 0.1;
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .rhumb line.major { stroke-opacity: 0.2; }
+
+  .rhumb circle {
+    fill: none;
+    stroke: var(--brass);
+    stroke-opacity: 0.24;
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .hero .wrap { position: relative; }
+
+
+  h1 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(3.2rem, 10vw, 8rem);
+    line-height: 0.92;
+    letter-spacing: -0.012em;
+    margin: 0 0 1.6rem;
+  }
+
+  .lede {
+    font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+    max-width: 36ch;
+    margin: 0 0 2rem;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.9rem;
+    padding: 0.7rem 1.3rem;
+    border: 1.5px solid transparent;
+    border-radius: 3px;
+    font: 700 1.02rem/1 var(--text);
+    text-decoration: none;
+    transition: background-color 0.15s, border-color 0.15s;
+  }
+
+  .btn[hidden] { display: none; }
+
+  .btn-primary {
+    background: var(--sail);
+    color: var(--sea);
+  }
+
+  .btn-primary:hover { background: #fff7e2; }
+
+  .btn-secondary {
+    border-color: rgba(236, 228, 207, 0.55);
+    color: var(--sail);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--sail);
+    background: rgba(236, 228, 207, 0.06);
+  }
+
+  /* Gallery */
+
+  .gallery { padding: 3.5rem 0 5rem; }
+
+  .gallery-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    line-height: 1;
+    margin: 0;
+  }
+
+  .count {
+    margin: 0;
+    color: var(--sail-dim);
+  }
+
+  .status {
+    max-width: 52ch;
+    margin: 0;
+    color: var(--sail-dim);
+  }
+
+  .grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr));
+    gap: 2.75rem 1.75rem;
+  }
+
+  .thumb {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: 2px;
+    background: var(--swell);
+    cursor: zoom-in;
+  }
+
+  .thumb img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 2px;
+    transition: filter 0.15s;
+  }
+
+  .thumb:hover img { filter: brightness(1.07); }
+
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-top: 0.8rem;
+  }
+
+  .shot-title { font-weight: 500; }
+
+  .shot-date {
+    color: var(--sail-dim);
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  .tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.4rem;
+    margin-top: 0.3rem;
+  }
+
+  .tool {
+    padding: 0.2rem 0;
+    border: 0;
+    background: none;
+    color: var(--brass);
+    font: 500 0.95rem/1.4 var(--text);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+    cursor: pointer;
+  }
+
+  .tool:hover { color: var(--signal-yellow); }
+
+  .tool[data-done] {
+    color: var(--sail);
+    text-decoration: none;
+  }
+
+  /* Viewer */
+
+  .viewer {
+    padding: 0;
+    max-width: min(1400px, 96vw);
+    max-height: 94vh;
+    border: 1px solid rgba(201, 154, 60, 0.35);
+    border-radius: 3px;
+    background: var(--sea-deep);
+    color: var(--sail);
+  }
+
+  .viewer::backdrop { background: rgba(5, 16, 21, 0.88); }
+
+  .viewer img {
+    width: auto;
+    height: auto;
+    max-width: min(1400px, 96vw);
+    max-height: calc(94vh - 3.75rem);
+  }
+
+  .viewer-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .viewer-caption {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .viewer-caption time {
+    margin-left: 0.6rem;
+    color: var(--sail-dim);
+  }
+
+  .viewer-bar button {
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 1px solid rgba(236, 228, 207, 0.35);
+    border-radius: 3px;
+    background: none;
+    color: var(--sail);
+    font: 400 1.35rem/1 var(--text);
+    cursor: pointer;
+  }
+
+  .viewer-bar button:hover { border-color: var(--sail); }
+  .viewer-bar button[hidden] { display: none; }
+
+  /* Footer */
+
+  footer {
+    padding: 2rem 0 calc(2rem + env(safe-area-inset-bottom, 0px));
+    border-top: 1px solid var(--rule);
+    color: var(--sail-dim);
+    font-size: 1rem;
+  }
+
+  footer p { margin: 0; }
+
+  @media (max-width: 560px) {
+    .hero { padding-bottom: 3.25rem; }
+    .gallery { padding-top: 2.5rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn, .thumb img { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="rhumb" id="rhumb" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+  <div class="wrap">
+
+    <h1>Rise of<br> the Pirates</h1>
+    <p class="lede">Screenshots from the Unity rebuild, straight out of the dev build.</p>
+    <div class="actions">
+      <a class="btn btn-primary" id="steam" href="#" hidden>Wishlist on Steam</a>
+      <a class="btn btn-secondary" id="discord" href="#" hidden>Join the Discord</a>
+    </div>
+  </div>
+</header>
+
+<main class="gallery">
+  <div class="wrap">
+    <div class="gallery-head">
+      <h2>Screenshots</h2>
+      <p class="count" id="count"></p>
+    </div>
+    <p class="status" id="status" role="status">Loading screenshots…</p>
+    <noscript><p class="status">Turn on JavaScript to see the screenshots.</p></noscript>
+    <ul class="grid" id="grid"></ul>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Rise of the Pirates was born on BYOND.</p>
+  </div>
+</footer>
+
+<dialog class="viewer" id="viewer" aria-label="Screenshot viewer">
+  <img id="viewer-img" alt="">
+  <div class="viewer-bar">
+    <p class="viewer-caption" id="viewer-caption"></p>
+    <button type="button" id="prev" aria-label="Previous screenshot">‹</button>
+    <button type="button" id="next" aria-label="Next screenshot">›</button>
+    <button type="button" id="close" aria-label="Close viewer">×</button>
+  </div>
+</dialog>
+
+<p class="visually-hidden" id="announce" aria-live="polite"></p>
+
+<script>
+/* ===== Edit these ===== */
+const CONFIG = {
+  steamUrl: "https://store.steampowered.com/app/5199600/Rise_of_the_Pirates/",        // your new Steam store page
+  discordUrl: "https://discord.gg/2U4fXTGzq2",      // your Discord invite link
+  folder: "screenshots",
+  embedWidth: 640,     // width used in the BYOND hub HTML snippet
+  owner: "",           // leave blank on GitHub Pages. Fill in to preview locally or on a custom domain.
+  repo: ""
+};
+/* ====================== */
+
+const $ = (sel) => document.querySelector(sel);
+const IMAGE_EXT = /\.(png|jpe?g|gif|webp)$/i;
+const CACHE_MS = 2 * 60 * 1000;
+let items = [];
+let publicBase = "";
+let current = 0;
+
+drawRhumb();
+setupLinks();
+init();
+
+function drawRhumb() {
+  const svg = $("#rhumb");
+  const ns = "http://www.w3.org/2000/svg";
+  const cx = 790, cy = 250;
+  for (let i = 0; i < 32; i++) {
+    const a = (i / 32) * Math.PI * 2;
+    const line = document.createElementNS(ns, "line");
+    line.setAttribute("x1", cx);
+    line.setAttribute("y1", cy);
+    line.setAttribute("x2", (cx + Math.cos(a) * 1600).toFixed(1));
+    line.setAttribute("y2", (cy + Math.sin(a) * 1600).toFixed(1));
+    if (i % 4 === 0) line.setAttribute("class", "major");
+    svg.appendChild(line);
+  }
+  [86, 92].forEach((r) => {
+    const c = document.createElementNS(ns, "circle");
+    c.setAttribute("cx", cx);
+    c.setAttribute("cy", cy);
+    c.setAttribute("r", r);
+    svg.appendChild(c);
+  });
+}
+
+function setupLinks() {
+  [["#steam", CONFIG.steamUrl], ["#discord", CONFIG.discordUrl]].forEach(([sel, url]) => {
+    const el = $(sel);
+    if (url) {
+      el.href = url;
+      el.hidden = false;
+    }
+  });
+}
+
+function repoInfo() {
+  if (CONFIG.owner && CONFIG.repo) return { owner: CONFIG.owner, repo: CONFIG.repo };
+  const host = location.hostname;
+  if (!host.endsWith(".github.io")) return null;
+  const owner = host.slice(0, -".github.io".length);
+  const first = location.pathname.split("/").filter(Boolean)[0];
+  const repo = first && !first.endsWith(".html") ? first : host;
+  return { owner, repo };
+}
+
+function getPublicBase(info) {
+  const local = location.protocol === "file:" || ["localhost", "127.0.0.1", "[::1]"].includes(location.hostname);
+  if (!local) return new URL(".", location.href).href;
+  if (info.repo.toLowerCase() === `${info.owner}.github.io`.toLowerCase()) return `https://${info.owner}.github.io/`;
+  return `https://${info.owner}.github.io/${info.repo}/`;
+}
+
+async function listImages(info) {
+  const key = `rotp-list:${info.owner}/${info.repo}/${CONFIG.folder}`;
+  try {
+    const cached = JSON.parse(sessionStorage.getItem(key));
+    if (cached && Date.now() - cached.t < CACHE_MS) return cached.names;
+  } catch (e) { /* storage unavailable, fetch fresh */ }
+
+  const url = `https://api.github.com/repos/${info.owner}/${info.repo}/contents/${CONFIG.folder}`;
+  const res = await fetch(url, { headers: { Accept: "application/vnd.github+json" } });
+  if (res.status === 404) return [];
+  if (res.status === 403 || res.status === 429) throw new Error("rate");
+  if (!res.ok) throw new Error("http");
+
+  const data = await res.json();
+  const names = Array.isArray(data)
+    ? data.filter((f) => f.type === "file" && IMAGE_EXT.test(f.name)).map((f) => f.name)
+    : [];
+  try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), names })); } catch (e) { /* ignore */ }
+  return names;
+}
+
+function describe(name) {
+  const base = name.replace(/\.[^.]+$/, "");
+  const m = base.match(/^(\d{4})-(\d{2})-(\d{2})[-_ ]?(.*)$/);
+  let date = null;
+  let rest = base;
+  if (m) {
+    date = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+    rest = m[4];
+  }
+  let title = rest.replace(/[-_]+/g, " ").trim();
+  title = title ? title[0].toUpperCase() + title.slice(1) : "Screenshot";
+  return { name, title, date };
+}
+
+function byNewest(a, b) {
+  if (a.date && b.date) return b.date - a.date || a.title.localeCompare(b.title);
+  if (a.date) return -1;
+  if (b.date) return 1;
+  return a.title.localeCompare(b.title, undefined, { numeric: true });
+}
+
+function formatDate(d) {
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+}
+
+function localUrl(item) {
+  return `${CONFIG.folder}/${encodeURIComponent(item.name)}`;
+}
+
+function publicUrl(item) {
+  return publicBase + localUrl(item);
+}
+
+function escapeAttr(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+}
+
+function hubHtml(item) {
+  const img = `<img src="${publicUrl(item)}" alt="${escapeAttr("Rise of the Pirates: " + item.title)}" width="${CONFIG.embedWidth}">`;
+  return CONFIG.steamUrl ? `<a href="${escapeAttr(CONFIG.steamUrl)}">${img}</a>` : img;
+}
+
+async function copyText(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch (e) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    let ok = false;
+    try { ok = document.execCommand("copy"); } catch (err) { ok = false; }
+    ta.remove();
+    return ok;
+  }
+}
+
+function announce(msg) {
+  const el = $("#announce");
+  el.textContent = "";
+  setTimeout(() => { el.textContent = msg; }, 30);
+}
+
+function copyButton(label, getText) {
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "tool";
+  btn.textContent = label;
+  btn.addEventListener("click", async () => {
+    const text = getText();
+    const ok = await copyText(text);
+    if (!ok) {
+      window.prompt("Copy this:", text);
+      return;
+    }
+    btn.textContent = "Copied";
+    btn.dataset.done = "";
+    announce(`${label.replace(/^Copy /, "")} copied`);
+    clearTimeout(btn._reset);
+    btn._reset = setTimeout(() => {
+      btn.textContent = label;
+      delete btn.dataset.done;
+    }, 1600);
+  });
+  return btn;
+}
+
+async function init() {
+  const status = $("#status");
+  const info = repoInfo();
+  if (!info) {
+    status.textContent = "To preview this page locally, fill in owner and repo at the top of the script. On GitHub Pages it works on its own.";
+    return;
+  }
+  publicBase = getPublicBase(info);
+
+  let names;
+  try {
+    names = await listImages(info);
+  } catch (err) {
+    status.textContent = err.message === "rate"
+      ? "GitHub is limiting requests from your network right now. Refresh in a few minutes."
+      : "Couldn't load the screenshot list from GitHub. Refresh the page to try again.";
+    return;
+  }
+
+  if (!names.length) {
+    status.textContent = "No screenshots yet. Add images to the screenshots folder and push. They show up here within a couple of minutes.";
+    return;
+  }
+
+  items = names.map(describe).sort(byNewest);
+  status.hidden = true;
+  $("#count").textContent = `${items.length} screenshot${items.length === 1 ? "" : "s"}`;
+  render();
+  setupViewer();
+}
+
+function render() {
+  const frag = document.createDocumentFragment();
+  items.forEach((item, i) => {
+    const li = document.createElement("li");
+    li.className = "shot";
+
+    const thumb = document.createElement("button");
+    thumb.type = "button";
+    thumb.className = "thumb";
+    thumb.setAttribute("aria-label", `View ${item.title} full size`);
+    thumb.addEventListener("click", () => openViewer(i));
+
+    const img = document.createElement("img");
+    img.src = localUrl(item);
+    img.alt = "";
+    img.width = 640;
+    img.height = 360;
+    img.loading = "lazy";
+    img.decoding = "async";
+    thumb.appendChild(img);
+
+    const meta = document.createElement("div");
+    meta.className = "meta";
+    const title = document.createElement("span");
+    title.className = "shot-title";
+    title.textContent = item.title;
+    meta.appendChild(title);
+    if (item.date) {
+      const time = document.createElement("time");
+      time.className = "shot-date";
+      time.dateTime = item.date.toISOString().slice(0, 10);
+      time.textContent = formatDate(item.date);
+      meta.appendChild(time);
+    }
+
+    const tools = document.createElement("div");
+    tools.className = "tools";
+    tools.appendChild(copyButton("Copy hub HTML", () => hubHtml(item)));
+    tools.appendChild(copyButton("Copy image link", () => publicUrl(item)));
+
+    li.append(thumb, meta, tools);
+    frag.appendChild(li);
+  });
+  $("#grid").appendChild(frag);
+}
+
+function setupViewer() {
+  const viewer = $("#viewer");
+  const multiple = items.length > 1;
+  $("#prev").hidden = !multiple;
+  $("#next").hidden = !multiple;
+  $("#prev").addEventListener("click", () => show(current - 1));
+  $("#next").addEventListener("click", () => show(current + 1));
+  $("#close").addEventListener("click", () => viewer.close());
+  viewer.addEventListener("click", (e) => { if (e.target === viewer) viewer.close(); });
+  viewer.addEventListener("keydown", (e) => {
+    if (!multiple) return;
+    if (e.key === "ArrowLeft") show(current - 1);
+    if (e.key === "ArrowRight") show(current + 1);
+  });
+}
+
+function show(i) {
+  current = (i + items.length) % items.length;
+  const item = items[current];
+  const img = $("#viewer-img");
+  img.src = localUrl(item);
+  img.alt = `Rise of the Pirates: ${item.title}`;
+  const cap = $("#viewer-caption");
+  cap.textContent = item.title;
+  if (item.date) {
+    const time = document.createElement("time");
+    time.dateTime = item.date.toISOString().slice(0, 10);
+    time.textContent = formatDate(item.date);
+    cap.appendChild(time);
+  }
+}
+
+function openViewer(i) {
+  const viewer = $("#viewer");
+  if (typeof viewer.showModal !== "function") {
+    window.open(localUrl(items[i]), "_blank");
+    return;
+  }
+  show(i);
+  viewer.showModal();
+}
+</script>
+</body>
+</html>
