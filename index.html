@@ -3,13 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Rise of the Pirates screenshots</title>
-<meta name="description" content="Screenshots from the Unity rebuild of Rise of the Pirates.">
+<title>Rise of the Pirates | Join the playtest community</title>
+<meta name="description" content="A pixel-art pirate MMORPG being rebuilt in Unity. See real game screenshots and join Discord for the free Windows test build, help, and feedback.">
 <meta property="og:title" content="Rise of the Pirates">
-<meta property="og:description" content="Screenshots from the Unity rebuild.">
-<!-- For image previews when this link is shared on Discord, add a cover image and uncomment:
-<meta property="og:image" content="https://YOURNAME.github.io/rotp-media/screenshots/cover.png">
--->
+<meta property="og:description" content="New to Rise of the Pirates? Join our Discord for the free Windows development build and help with your first session.">
+<meta property="og:image" content="https://peterpascual.github.io/rotp-media/screenshots/2026-09-23-jungle-island-overview.png">
+<meta property="og:url" content="https://peterpascual.github.io/rotp-media/">
 <meta name="theme-color" content="#0f2a36">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f2a36'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23c99a3c' stroke-width='2'/%3E%3Cpath d='M16 3v26M3 16h26' stroke='%23c99a3c' stroke-width='1.5'/%3E%3Cpath d='M16 8l3 8-3 8-3-8z' fill='%23ece4cf'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -108,13 +107,32 @@
     vector-effect: non-scaling-stroke;
   }
 
-  .hero .wrap { position: relative; }
+  .hero .wrap {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
+  }
+
+  .hero-shot { margin: 0; }
+  .hero-shot img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+  }
+  .hero-shot figcaption {
+    margin-top: 0.7rem;
+    color: var(--sail-dim);
+    font-size: 1rem;
+  }
 
 
   h1 {
     font-family: var(--display);
     font-weight: 400;
-    font-size: clamp(3.2rem, 10vw, 8rem);
+    font-size: clamp(3.2rem, 7vw, 6rem);
     line-height: 0.92;
     letter-spacing: -0.012em;
     margin: 0 0 1.6rem;
@@ -124,6 +142,18 @@
     font-size: clamp(1.15rem, 2.2vw, 1.35rem);
     max-width: 36ch;
     margin: 0 0 2rem;
+  }
+
+  .first-session {
+    max-width: 48ch;
+    margin: 0 0 1.5rem;
+    color: var(--sail-dim);
+  }
+
+  .build-note {
+    margin: 1rem 0 0;
+    color: var(--sail-dim);
+    font-size: 1rem;
   }
 
   .actions {
@@ -333,6 +363,10 @@
 
   footer p { margin: 0; }
 
+  @media (max-width: 800px) {
+    .hero .wrap { grid-template-columns: 1fr; }
+  }
+
   @media (max-width: 560px) {
     .hero { padding-bottom: 3.25rem; }
     .gallery { padding-top: 2.5rem; }
@@ -348,13 +382,22 @@
 <header class="hero">
   <svg class="rhumb" id="rhumb" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
   <div class="wrap">
-
+    <div class="hero-copy">
     <h1>Rise of<br> the Pirates</h1>
-    <p class="lede">Screenshots from the Unity rebuild, straight out of the dev build.</p>
+    <p class="lede">A pixel-art pirate MMORPG, being rebuilt in Unity.</p>
+    <p class="first-session">New here? We're looking for first-time players to try the free Windows development build. Join Discord for build access and help with your first session, then tell us the first thing that confused you or made you want to explore more.</p>
     <div class="actions">
-      <a class="btn btn-primary" id="steam" href="#" hidden>Wishlist on Steam</a>
-      <a class="btn btn-secondary" id="discord" href="#" hidden>Join the Discord</a>
+      <a class="btn btn-primary" id="discord" href="https://discord.gg/2U4fXTGzq2">Join the Discord</a>
+      <a class="btn btn-secondary" id="steam" href="#" hidden>Wishlist on Steam</a>
     </div>
+    <p class="build-note">Free test build for Windows. In development; expect rough edges.</p>
+    </div>
+    <figure class="hero-shot">
+      <a href="screenshots/2026-10-07-anchor-island-beach.png" aria-label="View the Anchor Island screenshot full size">
+        <img src="screenshots/2026-10-07-anchor-island-beach.png" alt="Rise of the Pirates development build: an island beach with palms and shipwrecks." width="7680" height="4320" decoding="async" fetchpriority="high">
+      </a>
+      <figcaption>Anchor Island. Actual game capture, October 7, 2026.</figcaption>
+    </figure>
   </div>
 </header>
 
@@ -372,6 +415,7 @@
 
 <footer>
   <div class="wrap">
+    <p>New to the game? <a class="tool" href="https://discord.gg/2U4fXTGzq2">Join the Discord</a> for build access, help, and feedback.</p>
     <p>Rise of the Pirates was born on BYOND.</p>
   </div>
 </footer>
